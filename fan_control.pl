@@ -78,7 +78,8 @@ sub set_fan_duty {
 #    my $datetime = build_date_time_string();
 #    if ($new_fan_duty != round($fan_duty)) {
         print "[$datetime] Changing fan duty:		$new_fan_duty % \n";
-        `ipmitool raw 0x30 0x70 0x66 0x01 1 $new_fan_duty`;
+        `ipmitool raw 0x30 0x70 0x66 0x01 1 $new_fan_duty`; # Periferals zone FANA, FANB ...
+        `ipmitool raw 0x30 0x70 0x66 0x01 0 $new_fan_duty`; # CPU zone FAN1, FAN2 ...
 #    }
 }
 
