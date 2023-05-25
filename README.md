@@ -7,11 +7,14 @@ For the moment changes only periferal zone (1). In order to control both
 zones (CPU and Periferal) enter standard mode and uncomment this line:
 `ipmitool raw 0x30 0x70 0x66 0x01 0 $new_fan_duty`;
 
-### setup cron task
+setup cron task:
+```
 systemctl status cron
 sudo crontab -e
 @reboot perl /home/ergot/fan_control/fan_control.pl > /home/ergot/fan_control/fan_control.log
 sudo crontab -l
 sudo reboot now
+```
 
-
+additional info:
+https://forums.servethehome.com/index.php?resources/supermicro-x9-x10-x11-fan-speed-control.20/
