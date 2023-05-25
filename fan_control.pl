@@ -136,8 +136,16 @@ sub read_config {
 }
 
 
-# set fan control mode to "Optimal mode"
-`ipmitool raw 0x30 0x45 0x01 2`;
+# set fan control mode to "Full mode"
+# to control both CPU and Periferals zone
+# by this script
+`ipmitool raw 0x30 0x45 0x01 0`;
+
+# set mode to "Optimal" to control
+# Periferals by script and let system
+# handle CPU zone automatically
+# `ipmitool raw 0x30 0x45 0x01 2`;
+
 sleep 1;
 
 
